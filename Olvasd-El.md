@@ -1,2 +1,3 @@
 # 20221018
-a<br\>a
+Dátum: 2022.10.18.<br/>
+Tanárok: Kiss Ádám, Wuncs Dávid
