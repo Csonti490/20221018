@@ -1,0 +1,132 @@
+#-------------------------------------------------
+#Python - 2022.10.18.
+'''
+Bekérunk egy számlisát. Az eredmény egy kételemű számlista legyen, ami a páros és páratlan számok összegeit külön mutatja.
+Pl.:
+különösszegek([1, 2, 3, 4, 5, 6]) -> [12, 9]
+12 = 2+4+6; 9 = 1+3+5
+'''
+def különösszegek(lista):
+    paros = 0
+    paratlan = 0
+    for i in lista:
+        if i % 2 == 0:
+            paros += i
+        if i % 2 != 0: # if i % 2 == 1
+            paratlan += i
+    molista = [paros,paratlan]
+    return molista
+    
+print(különösszegek([1, 2, 3, 4, 5, 6]))
+'''
+#Tanár mo.
+def kül(lista):
+    ptlan, paros = 0, 0
+    for i in lista:
+        if i%2:
+            paros += i
+        else:
+            ptlan += i
+    return [paros,ptlan]
+
+print(kül([1, 2, 3, 4, 5, 6]))
+'''
+#---------------------
+'''
+Listává konvertálás: list()
+Tagolás: split()
+m = "Ez egy példa mondat"
+Készitsünk egy listát, amink elemei ezen mondat szavai:
+ml = list(m.split(" "))
+    - TagolandóVáltozó.split("tagolandókarakter")
+----
+Adjuk vissza a mondat leghosszabb szavát.
+Pl.: mondatos("Melyik a leghosszabb szó ebben")
+    - for, if, len()
+'''
+def mondatos(m):
+    ml = list(m.split(" "))
+    nagy = ""
+    for i in ml:
+        if len(i) > len(nagy):
+            nagy = i
+    return "A leghosszabb szó a mondatban: "+nagy
+
+print(mondatos("Melyik a leghosszabb szó ebben"))
+'''
+def leghosszabb(mondat):
+    a = list(mondat.split(" "))
+    max = 0
+    for i in a:
+        if lin(i) > max:
+        leghosszabb = i
+        max = len(i)
+    return leghosszabb
+    
+print(leghosszabb("Melyik a leghosszabb szó ebben")) 
+'''
+#---------------------
+'''
+A függvény találja meg a mediánt egy számlistában.
+Median: a számok növekvő sorrendbe rendezése után...
+    ...páratlan elemszámnál a középső elem
+    ...párosnál pedig a 2 középső átlaga
+Parancsok:
+    sorted(): lista = sorted(lista1)
+'''
+def median(lista):
+    slista = sorted(lista)
+    med = 0
+    if len(slista) % 2 == 0:
+        med = slista[int(len(slista)/2)]
+        med2 = slista[(int(len(slista)/2))-1] # // - elveti a maradékot
+        return (med+med2)/2
+    if len(slista) % 2 != 0:
+        med = slista[int(len(slista)/2)]
+        return med
+        #return "Páratlan lista középső eleme: "+str(med)
+
+#print(median([1,3,2]))
+#print(median([1,3,2,4]))
+print("Páratlan lista középső eleme: "+str(median([1,3,2])))
+print("Páros lista középső eleme: "+str(median([1,3,2,4])))
+
+#Tanár mo.
+def median2(lista):
+    hossz = len(lista)
+    rendezett = sorted(lista)
+    if hossz % 2 == 1:#Ha páratlan elemszámú a lista
+        return rendezett[hossz//2]
+    else:#ha páratlan
+        megoldas = (rendezett[hossz//2] + rendezett[hossz//2-1])/2
+        return round(megoldas, 1)#1 tizedesre kerekítve
+#---------------------
+'''
+Vegyünk egy páros elemszámú listát.
+Fogjuk a 2. felét és másoljuk rá az 1. felére.
+Pl.: feles([2,3,4,5]) --> [4,5,4,5]
+Viszont ha az eredeti számokkal a 2. fél
+összege egyezik, akkor minden marad eredetiben
+'''
+def kétfél(lista):
+    a = 0 #a és b a 2 fél összege miatt kell
+    b = 0
+    c = [] #Ez lesz a megoldás
+    szam = int(len(lista)/2)#Hány elem egy fél
+    for i in range(szam):
+        a += lista[i]#A 2 féllista feltöltése
+        b += lista[szam+i]
+    for i in range(szam):
+        if a >= b:
+            c.append(lista[i])
+        else:
+            c.append(lista[szam+i])   
+    for i in range(szam):
+        if a > b:
+            c.append(lista[i])
+        else:
+            c.append(lista[szam+i])
+    return c
+
+print(kétfél([2,3,4,5]))
+#-------------------------------------------------
