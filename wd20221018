@@ -1,0 +1,13 @@
+/*
+Az órán 2db feladatot kellett megcsinálni és beadni a DKT-ba. Plusz pontokat lehetett ezzel szerezni, így másolni meg a netről lenézni nem volt érdemes.
+A megoldást nem írom le, de ha érdekel a 2db feladat, akkor itt van:
+*/
+
+//1. feladat
+// Kérj be egy prímszámot a felhasználótól. Addig kérjed, míg nem prímszámot ír be.
+//(while VAGY do-while cilkussal)
+
+//2. feladat
+// Csinálj egy 10elemű tömböt, amit feltöltesz random generált számokkal.
+// Számold meg, hogy hány db prímszám van benne.
+//(while VAGY do-while cilkussal)
